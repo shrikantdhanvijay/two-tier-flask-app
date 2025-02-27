@@ -5,12 +5,12 @@ pipeline{
     stages{
         stage("Code"){
             steps{
-                // echo "project clone karna hai"
+                echo "project clone karna hai"
                 // git url:"https://github.com/shrikantdhanvijay/two-tier-flask-app.git", branch: "master"
-                // echo "project clone ho gaya hai"
                 script{
-                    clone("https://github.com/shrikantdhanvijay/two-tier-flask-app.git","master")
-                }
+                       clone("https://github.com/shrikantdhanvijay/two-tier-flask-app.git", "master")
+               }
+              echo "project clone ho gaya hai"
             }
         }
 
