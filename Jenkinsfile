@@ -53,7 +53,7 @@ post{
         success{
             script{
                 emailext from: 'shrikantdhanvijay358@gmail.com',
-                to: 'mevivek632@gmail.com',
+                to: 'shreedhanvijay08@gmail.com',
                 body: 'Build success for Demo CICD App',
                 subject: 'Build success for Demo CICD App'
             }
@@ -61,7 +61,7 @@ post{
         failure{
             script{
                 emailext from: 'shrikantdhanvijay358@gmail.com',
-                to: 'mevivek632@gmail.com',
+                to: 'shreedhanvijay08@gmail.com',
                 body: 'Build Failed for Demo CICD App',
                 subject: 'Build Failed for Demo CICD App'
             }
