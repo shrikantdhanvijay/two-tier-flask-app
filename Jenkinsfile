@@ -9,6 +9,14 @@ pipeline{
                 echo "project clone ho gaya hai"
             }
         }
+
+        stage("Trivy File System Scan"){
+            steps{
+                script{
+                    trivy_fs()
+                }
+            }
+        }
         
         stage("Build"){
             steps{
