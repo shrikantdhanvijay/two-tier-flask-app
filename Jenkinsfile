@@ -42,18 +42,23 @@ pipeline{
         
         stage("Push to Docker hub"){
             steps{
-                withCredentials([usernamePassword(
-                    credentialsId:"shrikant-docker-hub-cred",
-                    passwordVariable: "dockerHubPass",
-                    usernameVariable: "dockerHubUser"
-                )]){
+                echo "Push karna hai"   
+                 script{
+                    docker_push("shrikant-docker-hub-cred","two-tier-flask-app")
+                }  
+               echo "Push ho gaya hai"   
+                // withCredentials([usernamePassword(
+                //     credentialsId:"shrikant-docker-hub-cred",
+                //     passwordVariable: "dockerHubPass",
+                //     usernameVariable: "dockerHubUser"
+                // )]){
                     
-                    echo "image push karna hai"
-                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                    sh "docker image tag my-first-jenkins-project ${env.dockerHubUser}/two-tier-flask-app"
-                    sh "docker push ${env.dockerHubUser}/two-tier-flask-app:latest"
-                    echo "image push ho gayi"
-                }
+                //     echo "image push karna hai"
+                //     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                //     sh "docker image tag my-first-jenkins-project ${env.dockerHubUser}/two-tier-flask-app"
+                //     sh "docker push ${env.dockerHubUser}/two-tier-flask-app:latest"
+                //     echo "image push ho gayi"
+                // }
             }
         }
         
