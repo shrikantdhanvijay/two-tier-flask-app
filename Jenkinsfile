@@ -44,7 +44,7 @@ pipeline{
             steps{
                 echo "Push karna hai"   
                  script{
-                    docker_push("shrikant-docker-hub-cred","two-tier-flask-app")
+                    clone.docker_push("shrikant-docker-hub-cred","two-tier-flask-app")
                 }  
                echo "Push ho gaya hai"   
                 // withCredentials([usernamePassword(
