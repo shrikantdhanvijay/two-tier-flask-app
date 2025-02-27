@@ -7,7 +7,6 @@ pipeline{
             steps{
                 echo "project clone karna hai"
                 // git url:"https://github.com/shrikantdhanvijay/two-tier-flask-app.git", branch: "master"
-                
                 script{
                        clone("https://github.com/shrikantdhanvijay/two-tier-flask-app.git", "master")
                }
