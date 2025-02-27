@@ -9,7 +9,7 @@ pipeline{
                 // git url:"https://github.com/shrikantdhanvijay/two-tier-flask-app.git", branch: "master"
                 
                 script{
-                       clone("https://github.com/shrikantdhanvijay/two-tier-flask-app.git", "master")
+                       clone.call("https://github.com/shrikantdhanvijay/two-tier-flask-app.git", "master")
                }
               echo "project clone ho gaya hai"
             }
@@ -17,7 +17,12 @@ pipeline{
 
         stage("Trivy File System Scan"){
             steps{
-                sh "trivy fs . -o results.json"
+              echo "file scan karna hai"
+                // sh "trivy fs . -o results.json"
+                script{
+                    clone.trivy_fs()
+                }
+                echo "File scan ho gayi hai"
             }
         }
         
